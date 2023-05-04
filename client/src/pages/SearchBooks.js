@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {  Jumbotron, Container,  Col,  Form,  Button,  Card, CardColumns } from 'react-bootstrap';
+import {
+  Container,
+  Col,
+  Form,
+  Button,
+  Card,
+  Row
+} from 'react-bootstrap';
 
 import Auth from '../utils/auth';
 import { saveBook, searchGoogleBooks } from '../utils/API';
@@ -81,14 +88,13 @@ const SearchBooks = () => {
       console.error(err);
     }
   };
-
-  return (
-    <>
-      <Jumbotron fluid className='text-light bg-dark'>
-          <Container>
+  return ( 
+<>
+      <div className='text-light bg-dark pt-5'>
+        <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
+            <Row>
               <Col xs={12} md={8}>
                 <Form.Control
                   name='searchInput'
@@ -104,21 +110,22 @@ const SearchBooks = () => {
                   Submit Search
                 </Button>
               </Col>
-            </Form.Row>
+            </Row>
           </Form>
         </Container>
-      </Jumbotron>
+      </div>
 
       <Container>
-        <h2>
+        <h2 className='pt-5'>
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
             : 'Search for a book to begin'}
         </h2>
-        <CardColumns>
+        <Row>
           {searchedBooks.map((book) => {
             return (
-              <Card key={book.bookId} border='dark'>
+              <Col md="4">
+                <Card key={book.bookId} border='dark'>
                   {book.image ? (
                     <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
                   ) : null}
@@ -138,12 +145,15 @@ const SearchBooks = () => {
                     )}
                   </Card.Body>
                 </Card>
-              );
+              </Col>
+            );
           })}
-        </CardColumns>
+        </Row>
       </Container>
     </>
   );
 };
+  
+    
 
 export default SearchBooks; 
