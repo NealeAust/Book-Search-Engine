@@ -1,7 +1,7 @@
 {
   "name": "googlebooks-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -18,5 +18,13 @@
   "dependencies": {
     "@apollo/client": "^3.7.13",
     "graphql-tag": "^2.12.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NealeAust/Book-Search-Engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NealeAust/Book-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/NealeAust/Book-Search-Engine#readme"
 }
