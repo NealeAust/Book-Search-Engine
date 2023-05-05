@@ -29,7 +29,7 @@ const token = Auth.loggedIn() ? Auth.getToken() : null;
         }
 
   try {
-        const { data } = await removeBook ({
+        const {data} = await removeBook ({
             variables: { bookId }
         });
 

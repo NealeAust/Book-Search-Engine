@@ -20,7 +20,6 @@ const resolvers = {
             throw new AuthenticationError('Not logged in')
 
         },
-
     },
 
     Mutation: {
@@ -32,7 +31,7 @@ const resolvers = {
             return {token, user};
         },
 
-        login: async (parent, {email, password}) => {
+        loginUser: async (parent, {email, password}) => {
             const user = await User.findOne({email});
 
             if(!user) {
